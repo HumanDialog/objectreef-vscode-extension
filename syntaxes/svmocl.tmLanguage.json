@@ -1,0 +1,210 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "svmocl",
+	"patterns": [
+		{
+			"include": "#aspect_expression"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#function_call"
+		},
+		{
+			"include": "#inline_comment"
+		},
+		{
+			"include": "#let_expression"
+		},
+		{
+			"include": "#storage"
+		},
+		{
+			"include": "#function_definition"
+		},
+		{
+			"include": "#variable_definition"
+		},
+		{
+			"include": "#new_expression"
+		},
+		{
+			"include": "#type_definition"
+		},
+		{
+			"include": "#members"
+		},
+		{
+			"include": "#fallback"
+		}
+	],
+	"repository": {
+		"fallback": {
+			"match": "\\b([A-Za-z_]\\w*)\\b",
+			"captures": {
+				"1": {
+					"name": "variable.svmocl"
+				}
+			}
+		},
+		"members": {
+			"match": "\\.([A-Za-z_]\\w*)(?!\\()\\b",
+			"captures": {
+				"1": {
+					"name": "variable.svmocl"
+				}
+			}
+		},
+		"function_call": {
+			"patterns": [
+				{
+					"name": "support.function.svmocl",
+					"match": "\\b([A-Za-z_]\\w*)\\("
+				}
+			]
+		},
+		"aspect_expression": {
+			"match": "\\b(aspect)\\s+(\\w+)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.svmocl"
+				},
+				"2": {
+					"name": "support.type.property-name"
+				}
+			}
+		},
+		"new_expression": {
+			"match": "\\b(new)\\s+(\\w+)",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.new.svmocl"
+				},
+				"2": {
+					"name": "entity.name.class.svmocl"
+				}
+			}
+		},
+		"type_definition": {
+			"match": "\\b(?i:(class|type))\\s+(\\w+)(?:\\s*:\\s*(\\w+))?\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.svmocl"
+				},
+				"2": {
+					"name": "entity.name.class.svmocl"
+				},
+				"3": {
+					"name": "entity.name.class.svmocl"
+				}
+			}
+		},
+		"variable_definition": {
+			"match": "\\b(?:(optional)\\s+)?(\\w+)\\s*:\\s*(\\w*)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.svmocl"
+				},
+				"2": {
+					"name": "variable.svmocl"
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "#types"
+						}
+					]
+				}
+			}
+		},
+		"function_definition": {
+			"match": "\\b(context|constraint)\\s+(\\w+)(?:\\s*::\\s*(\\w+)\\s*)?(?:\\((.*)\\)\\s*)?(?::\\s*(\\w+))?\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.svmocl"
+				},
+				"2": {
+					"name": "entity.name.class.svmocl"
+				},
+				"3": {
+					"name": "support.function.svmocl"
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "#variable_definition"
+						}
+					]
+				},
+				"5": {
+					"patterns": [
+						{
+							"include": "#types"
+						}
+					]
+				}
+			}
+		},
+		"inline_comment": {
+			"patterns": [{
+				"name": "comment.line.svmocl",
+				"match": "'.*$"
+			}]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.svmocl",
+					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|forAll|set)\\b"
+				},
+				{
+					"name": "keyword.other.svmocl",
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|data)\\b"
+				}
+			]
+		},
+		"storage": {
+			"patterns": [
+				{
+					"name": "storage.type.primitive.svmocl",
+					"match": "\\b(integer|string|currency|number|date|boolean|long|timespan)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.svmocl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.svmocl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"types": {
+			"match": "\\b(?:(integer|string|currency|number|date|boolean|long|timespan)|(\\w+))\\b",
+			"captures": {
+				"1": {
+					"name": "storage.type.primitive.svmocl"
+				},
+				"2": {
+					"name": "entity.name.class.svmocl"
+				}
+			}
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.svmocl",
+					"match": "(?:\\+|-)\\d+(?:\\.\\d+)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.svmocl"
+}

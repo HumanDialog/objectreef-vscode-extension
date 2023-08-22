@@ -1,0 +1,190 @@
+{
+	"name": "object-reef",
+	"displayName": "Object Reef Extension",
+	"description": "Object Reef Language Support & Debugging",
+	"author": "Human Dialog",
+	"version": "0.6.10",
+	"publisher": "humandialog",
+	"license": "MIT",
+	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "bcs"],
+	"repository": {
+		"type":"git",
+		"url":"https://github.com/HumanDialog/objectreef-vscode-extension.git"
+	},
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers"
+	],
+	"activationEvents": [
+		"onLanguage:svmocl",
+		"onLanguage:svmbas",
+		"onLanguage:svmbcs"
+	],
+	"main": "./client/out/extension",
+	"contributes": {
+		"menus": {
+			"editor/title": [
+				{
+					"command": "svmserver.debug",
+					"when": "resourceLangId == svmocl || resourceLangId == svmbas || resourceLangId == svm",
+					"group": "1_run@20"
+				}
+			]
+		}, 
+		"languages": [
+			{
+				"id": "svmocl",
+				"aliases": [
+					"ocl"
+				],
+				"extensions": [
+					".ocl"
+				],
+				"configuration": "./ocl-language-configuration.json"
+			},
+			{
+				"id": "svmbas",
+				"aliases": [
+					"bas"
+				],
+				"extensions": [
+					".bas"
+				],
+				"configuration": "./bas-language-configuration.json"
+			},
+			{
+				"id": "xml",
+				"aliases": [
+					"bcs"
+				],
+				"extensions": [
+					".bcs"
+				]
+			}
+		],
+		"breakpoints": [
+			{
+				"language": "svmocl"
+			},
+			{
+				"language": "svmbas"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "svm",
+				"label": "Object Reef debugger",
+				"configurationAttributes": {
+					"attach": {
+						"required": [
+							"program"
+						],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Absolute path to .bsc solution file",
+								"default": "${workspaceFolder}/${workspaceFolderBasename}.bcs"
+							}
+						}
+					}
+				},
+				"initialConfigurations": [
+					{
+						"type": "svm",
+						"request": "attach",
+						"name": "Attach Object Reef debugger",
+						"program": "${workspaceFolder}/${workspaceFolderBasename}.bcs"
+					}
+				],
+				"configurationSnippets": [
+					{
+						"label": "Object Reef debug: attach",
+						"description": "Configuration for attaching Object Reef debugger",
+						"body": {
+							"type": "svm",
+							"request": "attach",
+							"name": "Attach Object Reef",
+							"program": "^\"\\${workspaceFolder}/\\${workspaceFolderBasename}.bcs\""
+						}
+					}
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "svmocl",
+				"scopeName": "source.svmocl",
+				"path": "./syntaxes/svmocl.tmLanguage.json"
+			},
+			{
+				"language": "svmbas",
+				"scopeName": "source.svmbas",
+				"path": "./syntaxes/svmbas.tmLanguage.json"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "svm-lang configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "verbose",
+					"description": "Traces the communication between VS Code and the language server."
+				},
+				"svmserver.port": {
+					"scope": "window",
+					"type": "number",
+					"description": "Force Language Server port no.",
+					"default": 0
+				},
+				"svmserver.debugport": {
+					"scope": "window",
+					"type": "number",
+					"description": "Force Debug Adapter port no.",
+					"default": 0
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "svmserver.debug",
+				"title": "Object Reef: Debug",
+				"icon": "#{debug-alt}"
+			},
+			{
+				"command":"svmserver.reallocate_ports",
+				"title":"Object Reef: Reassign extension ports"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.7",
+		"mocha": "^6.2.2",
+		"@types/node": "^12.12.0",
+		"eslint": "^6.4.0",
+		"@typescript-eslint/parser": "^2.3.0",
+		"typescript": "^3.9.4"
+	}
+}
