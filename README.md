@@ -24,9 +24,9 @@ Debugger:
 This extension contributes the following settings:
 
 ## Building
-To build the extension you need a `vsce`:
-`npm install --global @vscode/vsce`
-and then type in repository root directory:
+To build the extension you need a **vsce**:\
+`npm install --global @vscode/vsce`\
+and then type in repository root directory:\
 `vsce package`
 
 **Enjoy!**
