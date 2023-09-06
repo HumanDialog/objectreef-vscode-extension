@@ -3,7 +3,7 @@
 	"displayName": "Object Reef Extension",
 	"description": "Object Reef Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.6.10",
+	"version": "0.6.11",
 	"publisher": "humandialog",
 	"license": "MIT",
 	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "bcs"],
@@ -24,6 +24,7 @@
 		"onLanguage:svmbcs"
 	],
 	"main": "./client/out/extension",
+	"icon":"res/reef.png",
 	"contributes": {
 		"menus": {
 			"editor/title": [
