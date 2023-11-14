@@ -3,10 +3,10 @@
 	"displayName": "Object Reef Extension",
 	"description": "Object Reef Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.6.11",
+	"version": "0.6.13",
 	"publisher": "humandialog",
 	"license": "MIT",
-	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "bcs"],
+	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "refs"],
 	"repository": {
 		"type":"git",
 		"url":"https://github.com/HumanDialog/objectreef-vscode-extension.git"
@@ -21,7 +21,7 @@
 	"activationEvents": [
 		"onLanguage:svmocl",
 		"onLanguage:svmbas",
-		"onLanguage:svmbcs"
+		"workspaceContains:*.refs"
 	],
 	"main": "./client/out/extension",
 	"icon":"res/reef.png",
@@ -59,10 +59,10 @@
 			{
 				"id": "xml",
 				"aliases": [
-					"bcs"
+					"refs"
 				],
 				"extensions": [
-					".bcs"
+					".refs"
 				]
 			}
 		],
@@ -86,8 +86,8 @@
 						"properties": {
 							"program": {
 								"type": "string",
-								"description": "Absolute path to .bsc solution file",
-								"default": "${workspaceFolder}/${workspaceFolderBasename}.bcs"
+								"description": "Absolute path to .refs solution file",
+								"default": "${workspaceFolder}/${workspaceFolderBasename}.refs"
 							}
 						}
 					}
@@ -97,7 +97,7 @@
 						"type": "svm",
 						"request": "attach",
 						"name": "Attach Object Reef debugger",
-						"program": "${workspaceFolder}/${workspaceFolderBasename}.bcs"
+						"program": "${workspaceFolder}/${workspaceFolderBasename}.refs"
 					}
 				],
 				"configurationSnippets": [
@@ -108,7 +108,7 @@
 							"type": "svm",
 							"request": "attach",
 							"name": "Attach Object Reef",
-							"program": "^\"\\${workspaceFolder}/\\${workspaceFolderBasename}.bcs\""
+							"program": "^\"\\${workspaceFolder}/\\${workspaceFolderBasename}.refs\""
 						}
 					}
 				]

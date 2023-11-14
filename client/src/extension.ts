@@ -208,7 +208,7 @@ export async function activate(context: ExtensionContext) {
 
 	let clientOptions: LanguageClientOptions = 
 	{
-		documentSelector: [{ scheme: 'file', language: 'svmocl' }, {scheme: 'file', language: 'svmbas'},{ scheme: 'file', language: 'svmbcs' }],
+		documentSelector: [{ scheme: 'file', language: 'svmocl' }, {scheme: 'file', language: 'svmbas'}],
 		synchronize: {
 			// Notify the server about file changes to '.clientrc files contained in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
