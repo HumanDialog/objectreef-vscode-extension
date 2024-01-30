@@ -3,7 +3,7 @@
 	"displayName": "Object Reef Extension",
 	"description": "Object Reef Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.6.13",
+	"version": "0.7.1",
 	"publisher": "humandialog",
 	"license": "MIT",
 	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "refs"],
@@ -42,7 +42,8 @@
 					"ocl"
 				],
 				"extensions": [
-					".ocl"
+					".ocl",
+					".ocx"
 				],
 				"configuration": "./ocl-language-configuration.json"
 			},
@@ -52,7 +53,8 @@
 					"bas"
 				],
 				"extensions": [
-					".bas"
+					".bas",
+					".bax"
 				],
 				"configuration": "./bas-language-configuration.json"
 			},
@@ -164,15 +166,33 @@
 		"commands": [
 			{
 				"command": "svmserver.debug",
-				"title": "Object Reef: Debug",
+				"title": "ObjectReef: Debug",
 				"icon": "#{debug-alt}"
 			},
 			{
 				"command":"svmserver.reallocate_ports",
-				"title":"Object Reef: Reassign extension ports"
+				"title":"ObjectReef: Reassign extension ports"
 			}
+		],
+		
+		"taskDefinitions": [
+				{
+					"type": "build",
+					"properties": {
+						"name":{
+							"type":"string",
+							"description": "Specifies particular build type."
+						},
+						"file": {
+							"type": "string",
+							"description": "The .refs solution file. Optional."
+						}
+					},
+					"required": ["name"]
+				}
 		]
 	},
+
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -b",

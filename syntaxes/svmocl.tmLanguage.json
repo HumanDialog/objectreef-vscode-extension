@@ -6,6 +6,9 @@
 			"include": "#aspect_expression"
 		},
 		{
+			"include": "#pre_expression"
+		},		
+		{
 			"include": "#keywords"
 		},
 		{
@@ -63,7 +66,7 @@
 			"patterns": [
 				{
 					"name": "support.function.svmocl",
-					"match": "\\b([A-Za-z_]\\w*)\\("
+					"match": "\\b([A-Za-z_]\\w*)\\s*\\((?=([A-Za-z_]*\\)[^:]))"
 				}
 			]
 		},
@@ -75,6 +78,17 @@
 				},
 				"2": {
 					"name": "support.type.property-name"
+				}
+			}
+		},
+		"pre_expression": {
+			"match": "\\b(pre)\\s+([\\w\\-\\s]+)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.svmocl"
+				},
+				"2": {
+					"name": "string.quoted.double.svmocl"
 				}
 			}
 		},
@@ -152,18 +166,18 @@
 		"inline_comment": {
 			"patterns": [{
 				"name": "comment.line.svmocl",
-				"match": "'.*$"
+				"match": "--.*$"
 			}]
 		},
 		"keywords": {
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|forAll|set)\\b"
+					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|end select|forAll|exists|newElement|delete|removeAll|insert|prior|next|first|last|at|count|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf|Asc|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
-					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|data)\\b"
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|data|public|protected|private|const)\\b"
 				}
 			]
 		},
@@ -171,21 +185,65 @@
 			"patterns": [
 				{
 					"name": "storage.type.primitive.svmocl",
-					"match": "\\b(integer|string|currency|number|date|boolean|long|timespan)\\b"
+					"match": "\\b(integer|string|currency|number|date|boolean|timespan|memblock)\\b"
 				}
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.svmocl",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.svmocl",
-					"match": "\\\\."
+					"include": "#qstring-single"
+				},
+				{
+					"include": "#qstring-double"
 				}
 			]
 		},
+		"qstring-double": {
+			"name": "string.quoted.double.svmocl",
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.svmocl"
+				}
+			},
+			"end": "(\")",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.string.end.svmocl"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string-character-escape"
+				}
+			]
+		},
+		"qstring-single": {
+			"name": "string.quoted.single.svmocl",
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.svmocl"
+				}
+			},
+			"end": "(\\')",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.string.end.svmocl"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#string-character-escape"
+				}
+			]
+		},
+		"string-character-escape": {
+			"name": "constant.character.escape.svmocl",
+			"match": "\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|u\\{[0-9A-Fa-f]+\\}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.|$)"
+		},
+
 		"types": {
 			"match": "\\b(?:(integer|string|currency|number|date|boolean|long|timespan)|(\\w+))\\b",
 			"captures": {

@@ -43,6 +43,7 @@ import {
 } from 'vscode-languageclient';
 import { Reserved_port } from './Reserved_port';
 import { Stored_port } from './Stored_port';
+import { Build_task_provider } from './build_task_provider';
 
 let client: LanguageClient;
 let socket: net.Socket;
@@ -106,10 +107,15 @@ class SvmErrorHandler
 
 
   
-export function deactivate(): Thenable<void> | undefined {
-	if (!client) {
+export function deactivate(): Thenable<void> | undefined 
+{	
+	if (build_task_provider)
+		build_task_provider.dispose();
+	
+
+	if (!client)
 		return undefined;
-	}
+	
 	return client.stop();
 }
 
@@ -187,10 +193,18 @@ async function read_ports( out: (ls :number, dbg :number) => void ) :Promise<boo
 	return true;
 }
 
+
+async function request_build()
+{
+	vscode.window.showInformationMessage('run build command');
+	
+}
+
 /// /////////////////////////////////////////////////////////////////////////////
 /// /////////////////////////////////////////////////////////////////////////////
 /// /////////////////////////////////////////////////////////////////////////////
 /// /////////////////////////////////////////////////////////////////////////////
+let build_task_provider: vscode.Disposable | undefined;
 export async function activate(context: ExtensionContext) {
 /// /////////////////////////////////////////////////////////////////////////////
 	let svmconfig = vscode.workspace.getConfiguration('svmserver');
@@ -225,11 +239,16 @@ export async function activate(context: ExtensionContext) {
 	);
 	
 	client.start();
+
+	const workspaceRoot = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
+		? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
+	
+	if (workspaceRoot) 
+		build_task_provider = vscode.tasks.registerTaskProvider(Build_task_provider.build_type, new Build_task_provider(workspaceRoot));
 	
 	client.info('Object Reef Extension Activated');
 
 	context.subscriptions.push(
-		
 		vscode.commands.registerCommand('svmserver.reallocate_ports', request_reallocate_ports),
 		vscode.commands.registerCommand('svmserver.debug', (resource: vscode.Uri) => {
 			vscode.debug.startDebugging(undefined, {

@@ -12,6 +12,9 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#stringsApostrophe"
+		},
+		{
 			"include": "#function_call"
 		},
 		{
@@ -72,7 +75,7 @@
 			"patterns": [
 				{
 					"name": "support.function.svmbas",
-					"match": "\\b([A-Za-z_]\\w*)\\("
+					"match": "([A-Za-z_]\\w*)\\s*\\("
 				}
 			]
 		},
@@ -203,7 +206,7 @@
 			}
 		},
 		"bas_function_definition": {
-			"match": "\\b(function|sub)\\s+(\\w+)\\s*\\((.*)\\)",
+			"match": "\\b(function|sub)\\s+(\\w+)\\s*",
 			"captures": {
 				"1": {
 					"name": "keyword.other.svmbas"
@@ -233,18 +236,18 @@
 		"inline_comment": {
 			"patterns": [{
 				"name": "comment.line.svmbas",
-				"match": "'.*$"
+				"match": "--.*$"
 			}]
 		},
 		"keywords": {
 			"patterns": [
 				{
 					"name": "keyword.control.svmbas",
-					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not)\\b"
+					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|end select|forAll|exists|newElement|delete|removeAll|insert|prior|next|first|last|at|count|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf|Asc|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				},
 				{
 					"name": "keyword.other.svmbas",
-					"match": "\\b(post|global|const|pre|inv|self|element|result|false|true|end\\s+function|(?i:dim|sub|end\\s+type|end\\s+sub))\\b"
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|data|public|protected|private|end function|end sub|const)\\b"
 				}
 			]
 		},
@@ -252,18 +255,29 @@
 			"patterns": [
 				{
 					"name": "storage.type.primitive.svmbas",
-					"match": "\\b(integer|string|currency|number|date|boolean|long|timespan)\\b"
+					"match": "\\b\\s*as\\s*(integer|string|currency|number|date|boolean|long|timespan)\\b"
 				}
 			]
 		},
 		"strings": {
 			"name": "string.quoted.double.svmbas",
 			"begin": "\"",
-			"end": "\"",
+			"end": "(?<!\\)\"",
 			"patterns": [
 				{
 					"name": "constant.character.escape.svmbas",
-					"match": "\\\\."
+					"match": "\"\"."
+				}
+			]
+		},
+		"stringsApostrophe": {
+			"name": "string.quoted.double.svmbas",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.svmbas",
+					"match": "\"\"."
 				}
 			]
 		},
