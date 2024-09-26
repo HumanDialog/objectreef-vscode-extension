@@ -173,7 +173,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|end select|forAll|exists|newElement|delete|removeAll|insert|prior|next|first|last|at|count|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf|Asc|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
+					"match": "\\b(let|if|else|while|wend|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|newElement|delete|removeAll|insert|prior|next|first|last|at|count|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf|Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",

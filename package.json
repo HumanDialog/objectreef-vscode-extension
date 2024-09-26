@@ -1,9 +1,9 @@
 {
 	"name": "object-reef",
-	"displayName": "Object Reef Extension",
-	"description": "Object Reef Language Support & Debugging",
+	"displayName": "ObjectReef Extension",
+	"description": "Reefs Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.7.1",
+	"version": "0.7.3",
 	"publisher": "humandialog",
 	"license": "MIT",
 	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "refs"],
@@ -39,11 +39,15 @@
 			{
 				"id": "svmocl",
 				"aliases": [
-					"ocl"
+					"ocl",
+					"reefs"
 				],
 				"extensions": [
 					".ocl",
-					".ocx"
+					".ocx",
+					".reef",
+					".reex",
+					".reefx"
 				],
 				"configuration": "./ocl-language-configuration.json"
 			},
@@ -79,7 +83,7 @@
 		"debuggers": [
 			{
 				"type": "svm",
-				"label": "Object Reef debugger",
+				"label": "ObjectReef debugger",
 				"configurationAttributes": {
 					"attach": {
 						"required": [
@@ -98,18 +102,18 @@
 					{
 						"type": "svm",
 						"request": "attach",
-						"name": "Attach Object Reef debugger",
+						"name": "Attach ObjectReef debugger",
 						"program": "${workspaceFolder}/${workspaceFolderBasename}.refs"
 					}
 				],
 				"configurationSnippets": [
 					{
-						"label": "Object Reef debug: attach",
-						"description": "Configuration for attaching Object Reef debugger",
+						"label": "ObjectReef debug: attach",
+						"description": "Configuration for attaching ObjectReef debugger",
 						"body": {
 							"type": "svm",
 							"request": "attach",
-							"name": "Attach Object Reef",
+							"name": "Attach ObjectReef",
 							"program": "^\"\\${workspaceFolder}/\\${workspaceFolderBasename}.refs\""
 						}
 					}

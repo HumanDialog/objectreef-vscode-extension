@@ -1,12 +1,12 @@
-# Object Reef VSCode Extension
+# ObjectReef VSCode Extension
 
-To attach debugger to running Object Reef service use 'Object Reef Debug' command from Command Palette
+To attach debugger to running ObjectReef service use 'ObjectReef Debug' command from Command Palette
 
 
 ## Features
 
 Language Server:
-- Syntax highlighting for .ocl and .bas files
+- Syntax highlighting for .reef and .bas files
 - Go to definition
 - basic Browse Info
 

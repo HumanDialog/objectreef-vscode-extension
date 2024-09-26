@@ -233,7 +233,7 @@ export async function activate(context: ExtensionContext) {
 
 	client = new LanguageClient(
 		'languageServerSVM',
-		'Object Reef',
+		'ObjectReef',
 		serverOptions,
 		clientOptions
 	);
@@ -246,14 +246,14 @@ export async function activate(context: ExtensionContext) {
 	if (workspaceRoot) 
 		build_task_provider = vscode.tasks.registerTaskProvider(Build_task_provider.build_type, new Build_task_provider(workspaceRoot));
 	
-	client.info('Object Reef Extension Activated');
+	client.info('ObjectReef Extension Activated');
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('svmserver.reallocate_ports', request_reallocate_ports),
 		vscode.commands.registerCommand('svmserver.debug', (resource: vscode.Uri) => {
 			vscode.debug.startDebugging(undefined, {
 				type: 'svm',
-				name: 'Debug Object Reef',
+				name: 'Debug ObjectReef',
 				request: 'attach',
 				program: null//program: resource.fsPath
 			});
