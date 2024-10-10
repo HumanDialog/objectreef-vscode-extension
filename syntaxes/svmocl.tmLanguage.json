@@ -218,7 +218,7 @@
 			"patterns": [
 				{
 					"name":"keyword.control.svmocl",
-					"match": "\\b(Sin,Cos,Tan,Asin,Acos,Atan,Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
+					"match": "\\b(Sin|Cos|Tan|Asin|Acos|Atan|Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				}
 			]
 		},
