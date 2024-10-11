@@ -12,6 +12,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#collection_keywords"
+		},
+		{
 			"include": "#internal_functions"
 		},
 		{
@@ -206,7 +209,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|if|else|while|wend|end while|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|newElement|delete|removeAll|insert|prior|next|first|last|at|count|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
+					"match": "\\b(let|if|else|while|wend|end while|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
@@ -214,11 +217,19 @@
 				}
 			]
 		},
+		"collection_keywords":{
+			"match":"\\.\\b(newElement|delete|removeAll|first|last|count)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.control.svmocl"
+				}
+			}
+		},
 		"internal_functions":{
 			"patterns": [
 				{
 					"name":"keyword.control.svmocl",
-					"match": "\\b(Sin|Cos|Tan|Asin|Acos|Atan|Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
+					"match": "\\b(Min|Max|Sin|Cos|Tan|Asin|Acos|Atan|Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				}
 			]
 		},
