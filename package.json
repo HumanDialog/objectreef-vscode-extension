@@ -3,7 +3,7 @@
 	"displayName": "ObjectReef Extension",
 	"description": "Reefs Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.7.7",
+	"version": "0.7.8",
 	"publisher": "humandialog",
 	"license": "MIT",
 	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "refs"],
@@ -16,7 +16,8 @@
 	},
 	"categories": [
 		"Programming Languages",
-		"Debuggers"
+		"Debuggers",
+		"Snippets"
 	],
 	"activationEvents": [
 		"onLanguage:svmocl",
@@ -130,6 +131,12 @@
 				"language": "svmbas",
 				"scopeName": "source.svmbas",
 				"path": "./syntaxes/svmbas.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "svmocl",
+				"path": "./ocl-snippets.json"
 			}
 		],
 		"configuration": {

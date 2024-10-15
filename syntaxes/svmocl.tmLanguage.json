@@ -209,11 +209,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|if|else|while|wend|end while|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
+					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
-					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|data|public|protected|private|const)\\b"
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|app|public|protected|private)\\b"
 				}
 			]
 		},
@@ -221,14 +221,14 @@
 			"match":"\\.\\b(newElement|delete|removeAll|first|last|count)\\b",
 			"captures": {
 				"1": {
-					"name": "keyword.control.svmocl"
+					"name": "keyword.other.svmocl"
 				}
 			}
 		},
 		"internal_functions":{
 			"patterns": [
 				{
-					"name":"keyword.control.svmocl",
+					"name":"keyword.other.svmocl",
 					"match": "\\b(Min|Max|Sin|Cos|Tan|Asin|Acos|Atan|Asc|Uni|Chr|InStr|LCase|Left|Len|LTrim|Mid|Replace|ReverseStr|Right|RTrim|StrComp|StrSet|Trim|UCase|Abs|Ceil|Exp|Floor|Hex|Int|Log|Log10|MulDiv|Pow|Sgn|Sqrt|CCur|CDbl|CSpan|CStr|Format)\\b"
 				}
 			]

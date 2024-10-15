@@ -1,0 +1,169 @@
+{
+	// Place your snippets for svmocl here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"class-declaration":{
+		"prefix": "class",
+		"body": ["class ${1:ClassName}","\t${0}","end class"]
+	},
+
+	"string-member":{
+		"prefix": ["member-string", "mstring"],
+		"body": ["${1:fieldName}:\t\t\tstring","${0}"]
+	},
+
+	"integer-member":{
+		"prefix": ["member-integer","minteger"],
+		"body": ["${1:fieldName}:\t\t\tinteger${0}"]
+	},
+
+	"currency-member":{
+		"prefix": ["member-currency","mcurrency"],
+		"body": ["${1:fieldName}:\t\t\tcurrency${0}"]
+	},
+
+	"number-member":{
+		"prefix": ["member-number","mnumber"],
+		"body": ["${1:fieldName}:\t\t\tnumber${0}"]
+	},
+
+	"boolean-member":{
+		"prefix": ["member-boolean","mboolean"],
+		"body": ["${1:fieldName}:\t\t\tboolean${0}"]
+	},
+
+	"date-member":{
+		"prefix": ["member-date","mdate"],
+		"body": ["${1:fieldName}:\t\t\tdate${0}"]
+	},
+
+	"timespan-member":{
+		"prefix": ["member-timespan","mtimespan"],
+		"body": ["${1:fieldName}:\t\t\ttimespan${0}"]
+	},
+
+	"memblock-member":{
+		"prefix": ["member-memblock","mmemblock"],
+		"body": ["${1:fieldName}:\t\t\tmemblock${0}"]
+	},
+
+	"composition-declatarion":{
+		"prefix": ["compositon","mcompo"],
+		"body": ["${1:Name}[${2:0..n}]:\t\t\t${3:Class}${0}"]
+	},
+
+	"aggregation-declatarion":{
+		"prefix": ["aggregation","maggr"],
+		"body": "${1:Name}<${2:0..n}>:\t\t\t${3:Class}${0}"
+	},
+
+	"association-declatarion":{
+		"prefix": ["assocation","massoc"],
+		"body": "${1:Name}:\t\t\t${2:Class}${0}"
+	},
+
+	"backnav":{
+		"prefix": "backnav",
+		"body": "<backNav: ${1:assocName}>${0}"
+	},
+
+	"let-string":{
+		"prefix": "let string",
+		"body": "let ${1:variable}: string${0}"
+	},
+
+	"let-integer":{
+		"prefix": "let integer",
+		"body": "let ${1:variable}: integer${0}"
+	},
+
+	"let-currency":{
+		"prefix": "let currency",
+		"body": "let ${1:variable}: currency${0}"
+	},
+
+	"let-number":{
+		"prefix": "let number",
+		"body": "let ${1:variable}: number${0}"
+	},
+
+	"let-date":{
+		"prefix": "let date",
+		"body": "let ${1:variable}: date${0}"
+	},
+
+	"let-timespan":{
+		"prefix": "let timespan",
+		"body": "let ${1:variable}: timespan${0}"
+	},
+
+	"let-boolean":{
+		"prefix": "let boolean",
+		"body": "let ${1:variable}: boolean${0}"
+	},
+
+	"let variable":{
+		"prefix": "let",
+		"body": "let ${1:variable}: ${2:type}${0}"
+	},
+
+	"operation":{
+		"prefix": ["context", "operation"],
+		"body": ["context ${1:MyClass}:${2:OperationName}(): ${3:ResultType}","post:","\t${0}"]
+	},
+
+	"invariant":{
+		"prefix": "invariant",
+		"body": ["context ${1:MyClass}","inv:","\t${0}"]
+	},
+
+	"if-then":{
+		"prefix": "if then",
+		"body": ["if ${1:condition} then","\t${0}", "end if"]
+	},
+
+	"if-then-else":{
+		"prefix": "if then else",
+		"body": ["if ${1:condition} then","\t${2}", "else", "\t${0}", "end if"]
+	},
+
+	"select-case":{
+		"prefix": "select case",
+		"body": ["select case ${1:var}","\tcase ${2:constant}","\t\t${0}","end select"]
+	},
+
+	"case":{
+		"prefix": "case",
+		"body": ["case ${1:constant}", "\t${0}"]
+	},
+
+	"case-else":{
+		"prefix": "case else",
+		"body": ["case else", "\t${0}"]
+	},
+
+	"while-loop":{
+		"prefix": "while loop",
+		"body": ["while ${1:condition} do","\t${0}","end while"]
+	},
+
+	"for-loop":{
+		"prefix":"for loop",
+		"body": ["for ${1:iterator}=${2:fromValue} to ${3:toValue} do","\t${0}", "next ${1}"]
+	},
+
+	"iterate-collection":{
+		"prefix": "iterate",
+		"body": "iterate(${1:element}; ${2:accumulator}:${3:accType}=0 | ${0})"
+	}
+}
