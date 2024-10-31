@@ -48,6 +48,12 @@
 			"include": "#type_definition"
 		},
 		{
+			"include": "#access_group"
+		},
+		{
+			"include": "#access_types"
+		},
+		{
 			"include": "#members"
 		},
 		{
@@ -62,6 +68,7 @@
 		{
 			"include": "#operators"
 		}
+		
 	],
 	"repository": {
 		"fallback": {
@@ -199,6 +206,99 @@
 				}
 			}
 		},
+		"access_group": {
+			"patterns": [
+				{
+					"match": "\\b(access group)\\s+(\\w+):\\s?(.*)\\b",
+					"captures": {
+						"1":{
+							"name":"keyword.other.svmocl"
+						},
+						"2":{
+							"name":"support.function.svmocl"
+						},
+						"3":{
+							"name":"string.quoted.double.svmocl"
+						}
+					}
+				},
+				{
+					"match": "\\b(access group)\\s+(\\w+)\\b",
+					"captures": {
+						"1":{
+							"name":"keyword.other.svmocl"
+						},
+						"2":{
+							"name":"support.function.svmocl"
+						}
+					}
+				},
+				{
+					"match":"\\b(access group)\\b",
+					"name":"keyword.other.svmocl"
+				}
+			]
+		},
+		"access_types":{
+			"patterns": [
+				{
+					"match": "(acc|nav)([A-Za-z0-9,.\\[\\]\\s]*)=?",
+					"captures": {
+						"1":{
+							"name":"keyword.control.svmocl"
+						},
+						"2":{
+							"patterns": [
+								{
+									"match": "\\[(.*)\\]",
+									"captures": {
+										"1":{
+											"patterns": [
+												{
+													"match": "([A-Za-z0-9\\.]+)",
+													"captures": {
+														"1":{
+															"name":"constant.numeric.svmocl"
+														}
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"match": "\\s*([A-Za-z0-9_]+),?",
+									"captures": {
+										"1":{
+											"name":"entity.name.class.svmocl"
+										}
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"match": "\\b(public|private|protected)\\s+([A-Za-z0-9_]+)\\b",
+					"captures": {
+						"1":{
+							"name":"keyword.other.svmocl"
+						},
+						"2":{
+							"name":"constant.numeric.svmocl"
+						}
+					}
+				},
+				{
+					"match": "\\b(public|private|protected)\\b",
+					"captures": {
+						"1":{
+							"name":"keyword.other.svmocl"
+						}
+					}
+				}
+			]
+		},
 		"inline_comment": {
 			"patterns": [{
 				"name": "comment.line.svmocl",
@@ -209,11 +309,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
+					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|mod|xor|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
-					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|app|public|protected|private)\\b"
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|admin)\\b"
 				}
 			]
 		},

@@ -1,17 +1,4 @@
 {
-	// Place your snippets for svmocl here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
 	"class-declaration":{
 		"prefix": "class",
 		"body": ["class ${1:ClassName}","\t${0}","end class"]
@@ -19,57 +6,57 @@
 
 	"string-member":{
 		"prefix": ["member-string", "mstring"],
-		"body": ["${1:fieldName}:\t\t\tstring","${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tstring","${0}"]
 	},
 
 	"integer-member":{
 		"prefix": ["member-integer","minteger"],
-		"body": ["${1:fieldName}:\t\t\tinteger${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tinteger${0}"]
 	},
 
 	"currency-member":{
 		"prefix": ["member-currency","mcurrency"],
-		"body": ["${1:fieldName}:\t\t\tcurrency${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tcurrency${0}"]
 	},
 
 	"number-member":{
 		"prefix": ["member-number","mnumber"],
-		"body": ["${1:fieldName}:\t\t\tnumber${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tnumber${0}"]
 	},
 
 	"boolean-member":{
 		"prefix": ["member-boolean","mboolean"],
-		"body": ["${1:fieldName}:\t\t\tboolean${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tboolean${0}"]
 	},
 
 	"date-member":{
 		"prefix": ["member-date","mdate"],
-		"body": ["${1:fieldName}:\t\t\tdate${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tdate${0}"]
 	},
 
 	"timespan-member":{
 		"prefix": ["member-timespan","mtimespan"],
-		"body": ["${1:fieldName}:\t\t\ttimespan${0}"]
+		"body": ["${1:fieldName}:\t\t\t\ttimespan${0}"]
 	},
 
 	"memblock-member":{
 		"prefix": ["member-memblock","mmemblock"],
-		"body": ["${1:fieldName}:\t\t\tmemblock${0}"]
+		"body": ["${1:fieldName}:\t\t\t\tmemblock${0}"]
 	},
 
 	"composition-declatarion":{
 		"prefix": ["compositon","mcompo"],
-		"body": ["${1:Name}[${2:0..n}]:\t\t\t${3:Class}${0}"]
+		"body": ["${1:Name}[${2:0..n}]:\t\t\t\t${3:Class}${0}"]
 	},
 
 	"aggregation-declatarion":{
 		"prefix": ["aggregation","maggr"],
-		"body": "${1:Name}<${2:0..n}>:\t\t\t${3:Class}${0}"
+		"body": "${1:Name}<${2:0..n}>:\t\t\t\t${3:Class}${0}"
 	},
 
 	"association-declatarion":{
 		"prefix": ["assocation","massoc"],
-		"body": "${1:Name}:\t\t\t${2:Class}${0}"
+		"body": "${1:Name}:\t\t\t\t${2:Class}${0}"
 	},
 
 	"backnav":{
@@ -119,7 +106,7 @@
 
 	"operation":{
 		"prefix": ["context", "operation"],
-		"body": ["context ${1:MyClass}:${2:OperationName}(): ${3:ResultType}","post:","\t${0}"]
+		"body": ["context ${1:MyClass}::${2:OperationName}(): ${3:ResultType}","post:","\t${0}"]
 	},
 
 	"invariant":{
