@@ -209,7 +209,7 @@
 		"access_group": {
 			"patterns": [
 				{
-					"match": "\\b(access group)\\s+(\\w+):\\s?(.*)\\b",
+					"match": "\\b(access role)\\s+(\\w+):\\s?(.*)\\b",
 					"captures": {
 						"1":{
 							"name":"keyword.other.svmocl"
@@ -218,12 +218,12 @@
 							"name":"support.function.svmocl"
 						},
 						"3":{
-							"name":"string.quoted.double.svmocl"
+							"name":"constant.numeric.svmocl"
 						}
 					}
 				},
 				{
-					"match": "\\b(access group)\\s+(\\w+)\\b",
+					"match": "\\b(access role)\\s+(\\w+)\\b",
 					"captures": {
 						"1":{
 							"name":"keyword.other.svmocl"
@@ -234,7 +234,7 @@
 					}
 				},
 				{
-					"match":"\\b(access group)\\b",
+					"match":"\\b(access role)\\b",
 					"name":"keyword.other.svmocl"
 				}
 			]
@@ -242,7 +242,7 @@
 		"access_types":{
 			"patterns": [
 				{
-					"match": "(acc|nav)([A-Za-z0-9,.\\[\\]\\s]*)=?",
+					"match": "\\b(acc|nav)\\b([A-Za-z0-9,.\\[\\]\\s]*)=?",
 					"captures": {
 						"1":{
 							"name":"keyword.control.svmocl"
@@ -309,11 +309,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|mod|xor|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|asType|isTypeOf|isKindOf)\\b"
+					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|mod|xor|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|readOnly|asType|isTypeOf|isKindOf)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
-					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|admin)\\b"
+					"match": "\\b(post|pre|inv|self|element|result|false|true|null|end\\s+class|end\\s+type|user|group|admin)\\b"
 				}
 			]
 		},

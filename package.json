@@ -3,7 +3,7 @@
 	"displayName": "ObjectReef Extension",
 	"description": "Reefs Language Support & Debugging",
 	"author": "Human Dialog",
-	"version": "0.7.10",
+	"version": "0.7.12",
 	"publisher": "humandialog",
 	"license": "MIT",
 	"keywords": ["Object Reef", "objectreef", "reef", "ocl", "refs"],
