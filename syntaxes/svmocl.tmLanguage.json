@@ -91,7 +91,7 @@
 			"patterns": [
 				{
 					"name": "support.function.svmocl",
-					"match": "\\b([A-Za-z_]\\w*)\\s*\\((?=([A-Za-z_]*\\)[^:]))"
+					"match": "\\b([A-Za-z_]\\w*)\\s*\\((?=(.*\\)[^:]))"
 				}
 			]
 		},
@@ -218,7 +218,7 @@
 							"name":"support.function.svmocl"
 						},
 						"3":{
-							"name":"constant.numeric.svmocl"
+							"name":"string.quoted.double.svmocl"
 						}
 					}
 				},
@@ -309,7 +309,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.svmocl",
-					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|mod|xor|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|readOnly|asType|isTypeOf|isKindOf)\\b"
+					"match": "\\b(let|const|if|else|while|wend|end while|for|return|end if|in|then|mod|xor|and|or|not|select|case|end select|forAll|revForAll|orderedBy|exists|insert|prior|next|at|sum|max|min|avg|iterate|asTree|set|backNav|readOnly|asType|isTypeOf|isKindOf)\\b"
 				},
 				{
 					"name": "keyword.other.svmocl",
